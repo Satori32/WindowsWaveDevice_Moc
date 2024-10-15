@@ -31,4 +31,5 @@ bool Pause(WindowsWaveDevice& In);
 DWORD GetPitch(WindowsWaveDevice& In);
 bool SetPitch(WindowsWaveDevice& In, DWORD X);
 bool Free(WindowsWaveDevice& In);
-bool CheckWriteTiming(WindowsWaveDevice& In);
+bool CheckDeviceWriteTiming(WindowsWaveDevice& In);
+bool CheckDataWriteTiming(WindowsWaveDevice& In);

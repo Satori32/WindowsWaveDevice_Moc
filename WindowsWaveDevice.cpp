@@ -50,8 +50,14 @@ WindowsWaveDevice ConstructWindowsWaveDevice() {
 	W.Format = CreateWaveFormatEX();
 	if (Open(W) == false) {};
 }
-bool CheckWriteTiming(WindowsWaveDevice& In) {
+bool CheckDeviceWriteTiming(WindowsWaveDevice& In) {
 	if (In.LastWaveDataWrite == In.LastWaveWriteToDevice) {
+		return false;
+	}
+	return true;
+}
+bool CheckDataWriteTiming(WindowsWaveDevice& In) {
+	if (In.LastWaveDataWrite != In.LastWaveWriteToDevice) {
 		return false;
 	}
 	return true;
