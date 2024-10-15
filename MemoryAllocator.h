@@ -17,3 +17,6 @@ template <class T> T* Index(Memory<T>& In, size_t Pos);
 template <class T> bool ReAllocateMemory(Memory<T>& In, size_t L);
 template <class T> size_t Size(Memory<T>& In);
 template <class T> Memory<T> Duplicate(Memory<T>& In);
+template <class T> T* GETPointer(Memory<T>& In);
+template <class T> bool Set(Memory<T>& In, const T& X);
+template <class T> bool Copy(Memory<T>& In, const Memory<T>& X);

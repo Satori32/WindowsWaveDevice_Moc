@@ -65,3 +65,18 @@ Memory<T> Duplicate(Memory<T>& In) {
 	else { memcpy(P, In.M, sizeof(T) * In.L); }
 	return M;
 }
+template <class T>
+T* GETPointer(Memory<T>& In) {
+	return Index(In, 0);
+}
+template <class T>
+bool Set(Memory<T>& In,const T& X) {
+	memset(GETPointer(In), X, sizeof(T));
+	return true;
+}
+template <class T>
+bool Copy(Memory<T>& In,const Memory<T>& X) {
+	if (Size(In) > Size(X)) { return false; }
+	memcpy(GETPointer(In), GETPointer(X), sizeof(T)*Size(X));
+	return true;
+}
