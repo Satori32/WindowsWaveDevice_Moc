@@ -20,11 +20,11 @@ bool Open(WindowsWaveDevice& In) {
 	double PI = 3.1415926535;
 	double Rad = PI / 180.0;
 	double T = 360 / In.Format.nSamplesPerSec;
-	for (size_t i = 0; i < In.Format.nSamplesPerSec * In.BuffSec; i++) {
+	for (size_t i = 0; i <Size(In.BuffA); i++) {
 		if (Index(In.BuffA, i) == NULL) { return false; }
 		if (Index(In.BuffB, i) == NULL) { return false; }
 		(*Index(In.BuffA, i)) = sin(Rad * (T * i)) * 0xefff;
-		(*Index(In.BuffB, i)) = sin(Rad * (T * i)) * 0xefff;
+		(*Index(In.BuffB, i)) = sin(Rad * (T*2 * i)) * 0xefff;
 	}
 	In.WHA.lpData = (LPSTR)Index(In.BuffA, 0);
 	In.WHA.dwBufferLength = In.Format.nSamplesPerSec * In.BuffSec;
