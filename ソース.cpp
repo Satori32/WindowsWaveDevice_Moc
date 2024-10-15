@@ -1,4 +1,4 @@
-#include <stdio.h>
+/** /#include <stdio.h>
 #include <stdint.h>
 #include <math.h>
 
@@ -121,6 +121,9 @@ bool Free(WindowsWaveDevice& In) {
 	if (Close(In) == false) { return false; }
 	return true;
 }
+/**/
+
+#include "WindowsWaveDevice.h"
 
 int main() {
 	WindowsWaveDevice W;
